@@ -52,7 +52,7 @@ ktech/
 ### Step 2 — WhatsApp
 
 1. In `index.html`, replace all instances of `2348103356742` with your real WhatsApp number in international format (no +, no spaces)
-   Example: `+234 810 335 6742` becomes `2348103356742`
+   Example: `+234 xxx xxx xxxx` becomes `234xxxxxxxxx`
 
 ### Step 3 — Deploy to Vercel
 
@@ -71,7 +71,7 @@ All content is in **`index.html`**. Here is what to edit:
 
 | What you want to change | Where to find it in index.html |
 |---|---|
-| Phone number | Search `2348103356742` — replace all 4 instances |
+| Phone number | Search `2348xxxxxx2` — replace all 4 instances |
 | Email address | Search `hello@ktech.ng` — replace both instances |
 | Prices | Search `₦5,000`, `₦15,000` |
 | Working hours | Search `8am to 7pm` |
@@ -80,7 +80,6 @@ All content is in **`index.html`**. Here is what to edit:
 | Hero headline | Find `<h1>IT Support` |
 | Add/remove a service card | Copy a `<div class="service-card">` block |
 
-kiitrepairs@gmail.com
 
 
 ---
