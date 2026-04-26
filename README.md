@@ -28,7 +28,7 @@ ktech/
 | Domain (optional) | Any registrar | ~$10/yr |
 
 ---
-
+ 
 ## One-Time Setup Guide
 
 ### Step 1 — Notion CRM (your customer database)
