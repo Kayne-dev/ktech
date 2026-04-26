@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>K Tech – IT Support Services Abuja</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0A1628;
+  --blue:#1A3A6B;
+  --accent:#2563EB;
+  --accent-light:#DBEAFE;
+  --white:#FFFFFF;
+  --gray-50:#F8FAFC;
+  --gray-100:#F1F5F9;
+  --gray-200:#E2E8F0;
+  --gray-500:#64748B;
+  --gray-700:#334155;
+  --gray-900:#0F172A;
+  --green:#16A34A;
+  --radius:8px;
+  --radius-lg:14px;
+  --wa-green:#25D366;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--gray-900);background:var(--white);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:var(--white);letter-spacing:-0.5px}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.72);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--accent);color:var(--white);border:none;padding:9px 20px;border-radius:var(--radius);font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;transition:background 0.2s}
+.nav-cta:hover{background:#1D4ED8}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--white);border-radius:2px}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--navy);padding:20px 24px;z-index:99;border-bottom:1px solid rgba(255,255,255,0.08)}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:16px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mobile-menu .mob-cta{display:block;background:var(--accent);color:var(--white);text-align:center;padding:13px;border-radius:var(--radius);margin-top:16px;font-weight:500;text-decoration:none}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 24px 60px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(37,99,235,0.18) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(37,99,235,0.08) 0%,transparent 60%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);border-radius:100px;padding:6px 14px;margin-bottom:24px}
+.hero-badge-dot{width:7px;height:7px;background:#4ADE80;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(1.2)}}
+.hero-badge span{font-size:12px;color:rgba(255,255,255,0.8);font-weight:500}
+.hero h1{font-size:clamp(36px,5vw,56px);color:var(--white);line-height:1.1;margin-bottom:20px;letter-spacing:-1.5px}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero p{color:rgba(255,255,255,0.62);font-size:18px;line-height:1.7;margin-bottom:36px;max-width:460px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:var(--white);padding:14px 28px;border-radius:var(--radius);font-size:15px;font-weight:500;text-decoration:none;transition:background 0.2s;font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:#1D4ED8}
+.btn-wa{background:var(--wa-green);color:var(--white);padding:14px 28px;border-radius:var(--radius);font-size:15px;font-weight:500;text-decoration:none;transition:background 0.2s;font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:8px}
+.btn-wa:hover{background:#1ebe5d}
+.btn-secondary{background:rgba(255,255,255,0.07);color:var(--white);padding:14px 28px;border-radius:var(--radius);font-size:15px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.15);transition:background 0.2s}
+.btn-secondary:hover{background:rgba(255,255,255,0.12)}
+.hero-stats{display:flex;gap:36px;margin-top:48px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.1)}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--white)}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px}
+.hero-visual{display:flex;justify-content:center;align-items:center}
+.hero-card-stack{position:relative;width:340px;height:360px}
+.hcard{position:absolute;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:22px;backdrop-filter:blur(8px)}
+.hcard-main{width:300px;top:40px;left:20px;background:rgba(255,255,255,0.06)}
+.hcard-float1{width:180px;top:0;right:0;transform:rotate(3deg)}
+.hcard-float2{width:160px;bottom:30px;left:0;transform:rotate(-4deg)}
+.hcard-icon{width:36px;height:36px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:18px}
+.hcard h4{color:var(--white);font-size:14px;margin-bottom:6px}
+.hcard p{color:rgba(255,255,255,0.5);font-size:12px;line-height:1.5}
+.hcard-status{display:flex;align-items:center;gap:6px;margin-top:12px}
+.dot-green{width:6px;height:6px;background:#4ADE80;border-radius:50%}
+.status-txt{font-size:11px;color:#4ADE80}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);padding:20px 24px}
+.trust-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;color:var(--gray-500);font-size:13px;font-weight:500}
+.check-icon{width:16px;height:16px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:white;font-weight:700}
+
+/* ── SECTIONS ── */
+section{padding:80px 24px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-tag{display:inline-block;background:var(--accent-light);color:var(--accent);font-size:12px;font-weight:600;padding:5px 12px;border-radius:100px;margin-bottom:14px;letter-spacing:0.5px;text-transform:uppercase}
+.section-title{font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--gray-900);letter-spacing:-1px;margin-bottom:14px;line-height:1.15}
+.section-subtitle{font-size:17px;color:var(--gray-500);line-height:1.7;max-width:560px}
+
+/* ── SERVICES ── */
+#services{background:var(--white)}
+.services-header{text-align:center;margin-bottom:56px}
+.services-header .section-subtitle{margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:28px;transition:all 0.25s;cursor:default}
+.service-card:hover{background:var(--white);border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 8px 32px rgba(37,99,235,0.1)}
+.service-icon{width:48px;height:48px;background:var(--accent-light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.service-card h3{font-size:17px;font-weight:600;color:var(--gray-900);margin-bottom:10px}
+.service-card p{font-size:14px;color:var(--gray-500);line-height:1.7}
+.service-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tag{background:var(--gray-100);color:var(--gray-700);font-size:11px;padding:4px 10px;border-radius:100px;font-weight:500}
+
+/* ── HOW IT WORKS ── */
+#how{background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+.how-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.steps{display:flex;flex-direction:column}
+.step{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--gray-200)}
+.step:last-child{border-bottom:none}
+.step-num{width:40px;height:40px;background:var(--navy);color:var(--white);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;flex-shrink:0}
+.step-content h4{font-size:16px;font-weight:600;color:var(--gray-900);margin-bottom:6px}
+.step-content p{font-size:14px;color:var(--gray-500);line-height:1.6}
+.how-visual{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:28px}
+.support-types{display:flex;flex-direction:column;gap:14px}
+.support-type{display:flex;align-items:center;gap:14px;padding:16px;background:var(--gray-50);border-radius:var(--radius);border:1px solid var(--gray-200)}
+.support-type-icon{font-size:22px;width:44px;height:44px;background:var(--accent-light);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.support-type-info h5{font-size:14px;font-weight:600;color:var(--gray-900)}
+.support-type-info p{font-size:12px;color:var(--gray-500);margin-top:2px}
+.avail-badge{margin-left:auto;background:#DCFCE7;color:#15803D;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;flex-shrink:0}
+
+/* ── PRICING ── */
+#pricing{background:var(--white)}
+.pricing-header{text-align:center;margin-bottom:52px}
+.pricing-header .section-subtitle{margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pricing-card{border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:32px;position:relative;transition:all 0.2s}
+.pricing-card.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 12px 40px rgba(37,99,235,0.12)}
+.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--white);font-size:11px;font-weight:600;padding:5px 16px;border-radius:100px;white-space:nowrap}
+.plan-name{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--gray-500);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+.plan-price{font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:var(--gray-900);letter-spacing:-1.5px;margin-bottom:4px}
+.plan-price span{font-size:16px;color:var(--gray-500);font-weight:400}
+.plan-desc{font-size:14px;color:var(--gray-500);margin-bottom:24px;line-height:1.6}
+.plan-divider{border:none;border-top:1px solid var(--gray-200);margin-bottom:20px}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.plan-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--gray-700)}
+.plan-features li::before{content:'✓';background:var(--accent);color:white;width:17px;height:17px;border-radius:50%;font-size:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-weight:700}
+.plan-btn{display:block;text-align:center;padding:13px;border-radius:var(--radius);font-size:14px;font-weight:500;text-decoration:none;transition:all 0.2s;font-family:'DM Sans',sans-serif;cursor:pointer;border:none;width:100%}
+.plan-btn.outline{border:1.5px solid var(--gray-200);color:var(--gray-700);background:transparent}
+.plan-btn.outline:hover{border-color:var(--accent);color:var(--accent)}
+.plan-btn.solid{background:var(--accent);color:var(--white)}
+.plan-btn.solid:hover{background:#1D4ED8}
+
+/* ── CONTACT ── */
+#contact{background:var(--navy)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.contact-info h2{color:var(--white)}
+.contact-info .section-tag{background:rgba(37,99,235,0.2);color:#93C5FD}
+.contact-info p{color:rgba(255,255,255,0.6);font-size:16px;line-height:1.7;margin-bottom:36px}
+.contact-methods{display:flex;flex-direction:column;gap:16px}
+.contact-method{display:flex;align-items:center;gap:14px}
+.contact-method-icon{width:42px;height:42px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.contact-method-text span{display:block;font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:2px}
+.contact-method-text strong{color:var(--white);font-size:15px}
+.contact-method-text a{color:var(--white);text-decoration:none}
+.contact-form-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:32px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:7px;font-weight:500}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius);padding:11px 14px;color:var(--white);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.3)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-group select option{background:var(--navy);color:var(--white)}
+.form-submit{width:100%;background:var(--accent);color:var(--white);border:none;padding:14px;border-radius:var(--radius);font-size:15px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.form-submit:hover{background:#1D4ED8}
+.form-submit:disabled{background:#555;cursor:not-allowed}
+.form-success{display:none;text-align:center;padding:32px 24px}
+.form-success .success-icon{font-size:48px;margin-bottom:16px}
+.form-success h3{color:white;font-size:20px;margin-bottom:8px;font-family:'Space Grotesk',sans-serif}
+.form-success p{color:rgba(255,255,255,0.6);font-size:15px}
+.form-error-msg{background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);color:#FCA5A5;padding:10px 14px;border-radius:var(--radius);font-size:14px;margin-bottom:14px;display:none}
+
+/* ── ABOUT ── */
+#about{background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.about-badge{background:var(--white);border:1px solid var(--gray-200);border-radius:100px;padding:7px 16px;font-size:13px;font-weight:500;color:var(--gray-700)}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.perk{display:flex;align-items:flex-start;gap:12px}
+.perk-icon{width:36px;height:36px;background:var(--accent-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.perk h5{font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:3px}
+.perk p{font-size:13px;color:var(--gray-500);line-height:1.5}
+.about-visual{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:32px;text-align:center}
+.avatar-circle{width:90px;height:90px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:white}
+.about-visual h3{font-size:20px;font-weight:700;color:var(--gray-900);margin-bottom:4px}
+.about-visual .role{font-size:14px;color:var(--gray-500);margin-bottom:20px}
+.skill-bars{text-align:left}
+.skill-bar{margin-bottom:14px}
+.skill-bar-label{display:flex;justify-content:space-between;font-size:13px;color:var(--gray-700);margin-bottom:5px;font-weight:500}
+.skill-bar-track{background:var(--gray-100);border-radius:100px;height:6px;overflow:hidden}
+.skill-bar-fill{background:var(--accent);height:100%;border-radius:100px}
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float{position:fixed;bottom:90px;right:24px;z-index:999;width:56px;height:56px;background:var(--wa-green);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.2s,box-shadow 0.2s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.55)}
+.wa-float svg{width:28px;height:28px;fill:white}
+.wa-tooltip{position:absolute;right:68px;background:var(--gray-900);color:white;font-size:12px;font-weight:500;padding:6px 12px;border-radius:6px;white-space:nowrap;opacity:0;transition:opacity 0.2s;pointer-events:none}
+.wa-float:hover .wa-tooltip{opacity:1}
+
+/* ── FOOTER ── */
+footer{background:var(--gray-900);padding:48px 24px 28px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:var(--white);margin-bottom:12px}
+.footer-logo span{color:var(--accent)}
+.footer-desc{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7}
+.footer-col h4{font-size:13px;font-weight:600;color:var(--white);margin-bottom:16px;letter-spacing:0.5px;text-transform:uppercase}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:14px;transition:color 0.2s}
+.footer-col ul a:hover{color:rgba(255,255,255,0.85)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-size:13px;color:rgba(255,255,255,0.3)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .services-grid,.pricing-grid{grid-template-columns:1fr 1fr}
+  .hero-inner,.how-inner,.about-inner,.contact-inner{grid-template-columns:1fr}
+  .hero-visual{display:none}
+  .hero-stats{gap:24px}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:600px){
+  .services-grid,.pricing-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .perks{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .hero h1{font-size:34px}
+  .hero-stats{gap:20px}
+  .stat-num{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     WHATSAPP FLOATING BUTTON
+     Replace +2349121581316 with your number
+     ═══════════════════════════════════════ -->
+<a class="wa-float"
+   href="https://wa.me/2349121581316?text=Hi%20K%20Tech!%20I%20need%20IT%20support."
+   target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">K<span>.</span>TECH</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get Support</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#how" onclick="closeMenu()">How It Works</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#contact" class="mob-cta" onclick="closeMenu()">Get Support Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>Available for support &middot; Abuja &amp; Remote</span>
+      </div>
+      <h1>IT Support <em>You Can Actually Rely On</em></h1>
+      <p>Fast, professional IT services for individuals and businesses in Abuja. Laptop repairs, Microsoft 365 setup, WordPress maintenance, and remote support — all in one place.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Get Support Now</a>
+        <a href="https://wa.me/2349121581316?text=Hi%20K%20Tech!%20I%20need%20IT%20support." target="_blank" class="btn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Now
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-num">24h</div><div class="stat-label">Response Time</div></div>
+        <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Remote Capable</div></div>
+        <div class="stat-item"><div class="stat-num">Abuja</div><div class="stat-label">Based &amp; On-site</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="hcard hcard-float1">
+          <div class="hcard-icon">💻</div>
+          <h4>Laptop Repair</h4>
+          <p>Hardware &amp; software fixes</p>
+        </div>
+        <div class="hcard hcard-main">
+          <div class="hcard-icon">☁️</div>
+          <h4>Microsoft 365 Admin</h4>
+          <p>Setup, migration &amp; ongoing management for your business</p>
+          <div class="hcard-status">
+            <div class="dot-green"></div>
+            <span class="status-txt">Service Active</span>
+          </div>
+        </div>
+        <div class="hcard hcard-float2">
+          <div class="hcard-icon">🌐</div>
+          <h4>WordPress</h4>
+          <p>Maintenance &amp; updates</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><div class="check-icon">✓</div>On-site Support in Abuja</div>
+    <div class="trust-item"><div class="check-icon">✓</div>Remote Support Nationwide</div>
+    <div class="trust-item"><div class="check-icon">✓</div>Microsoft 365 Certified</div>
+    <div class="trust-item"><div class="check-icon">✓</div>Fast Turnaround</div>
+    <div class="trust-item"><div class="check-icon">✓</div>Transparent Pricing</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Comprehensive IT Support Services</h2>
+      <p class="section-subtitle">From a broken laptop to a fully managed Microsoft 365 environment, we handle it all for individuals and businesses.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <h3>Laptop &amp; PC Repair</h3>
+        <p>Hardware diagnostics, screen replacements, battery swaps, OS reinstallation, virus removal, and performance optimization for all brands.</p>
+        <div class="service-tags"><span class="tag">Hardware</span><span class="tag">Software</span><span class="tag">Virus Removal</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">☁️</div>
+        <h3>Microsoft 365 Administration</h3>
+        <p>User setup, email migration, SharePoint, Teams configuration, licensing management, and ongoing M365 support for your organization.</p>
+        <div class="service-tags"><span class="tag">Exchange</span><span class="tag">Teams</span><span class="tag">SharePoint</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>WordPress Maintenance</h3>
+        <p>Plugin updates, security hardening, speed optimization, backup management, and content updates for your WordPress website.</p>
+        <div class="service-tags"><span class="tag">Security</span><span class="tag">Updates</span><span class="tag">Backups</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📦</div>
+        <h3>Software Installation</h3>
+        <p>Licensed software setup, Office suite installation, antivirus deployment, accounting software, and any business application you need.</p>
+        <div class="service-tags"><span class="tag">Office Suite</span><span class="tag">Antivirus</span><span class="tag">Business Apps</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔌</div>
+        <h3>Network &amp; Connectivity</h3>
+        <p>Wi-Fi setup and troubleshooting, router configuration, network security, printer setup, and office network infrastructure.</p>
+        <div class="service-tags"><span class="tag">Wi-Fi</span><span class="tag">Routers</span><span class="tag">Printers</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🖥️</div>
+        <h3>Remote IT Support</h3>
+        <p>Get expert help from anywhere in Nigeria. We connect remotely to your device and resolve issues fast, no travel needed.</p>
+        <div class="service-tags"><span class="tag">Remote Desktop</span><span class="tag">Nationwide</span><span class="tag">Fast Response</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div class="how-inner">
+      <div>
+        <div class="section-tag">How It Works</div>
+        <h2 class="section-title">Support in 4 Simple Steps</h2>
+        <p class="section-subtitle" style="margin-bottom:36px">Getting IT help has never been easier.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content"><h4>Reach Out</h4><p>Fill the contact form or WhatsApp us. Describe your issue and we will get back to you within hours.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content"><h4>Diagnosis &amp; Quote</h4><p>We assess the problem remotely or on-site and provide a clear, no-obligation quote before any work begins.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content"><h4>We Fix It</h4><p>Our technician resolves the issue efficiently, keeping you informed throughout the process. No jargon, no surprises.</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content"><h4>Follow-Up Support</h4><p>We check in after the job to ensure everything is running smoothly. Your satisfaction is our priority.</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="how-visual">
+          <h4 style="font-size:16px;font-weight:600;color:var(--gray-900);margin-bottom:20px">Support Delivery Options</h4>
+          <div class="support-types">
+            <div class="support-type">
+              <div class="support-type-icon">🏠</div>
+              <div class="support-type-info"><h5>On-Site Visit (Abuja)</h5><p>We come to your home or office</p></div>
+              <div class="avail-badge">Available</div>
+            </div>
+            <div class="support-type">
+              <div class="support-type-icon">🖥️</div>
+              <div class="support-type-info"><h5>Remote Support</h5><p>Secure remote connection from anywhere</p></div>
+              <div class="avail-badge">Available</div>
+            </div>
+            <div class="support-type">
+              <div class="support-type-icon">🔧</div>
+              <div class="support-type-info"><h5>Drop-Off / Pick-Up</h5><p>Bring your device or we collect it</p></div>
+              <div class="avail-badge">Available</div>
+            </div>
+            <div class="support-type">
+              <div class="support-type-icon">📅</div>
+              <div class="support-type-info"><h5>Scheduled Maintenance</h5><p>Monthly IT care for businesses</p></div>
+              <div class="avail-badge">Available</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-inner">
+    <div class="pricing-header">
+      <div class="section-tag">Pricing</div>
+      <h2 class="section-title">Simple, Transparent Pricing</h2>
+      <p class="section-subtitle">No hidden charges. Choose a plan or reach out for a custom quote.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="plan-name">Basic</div>
+        <div class="plan-price">&#x20A6;14,995 <span>/ session</span></div>
+        <p class="plan-desc">For individuals with a single IT issue.</p>
+        <hr class="plan-divider"/>
+        <ul class="plan-features">
+          <li>Remote support (up to 1 hr)</li>
+          <li>Software troubleshooting</li>
+          <li>Virus &amp; malware removal</li>
+          <li>Software installation</li>
+          <li>Email support follow-up</li>
+        </ul>
+        <button class="plan-btn outline" onclick="selectPlan('Basic - ₦14,995/session')">Get Started</button>
+      </div>
+      <div class="pricing-card featured">
+        <div class="popular-badge">MOST POPULAR</div>
+        <div class="plan-name">Professional</div>
+        <div class="plan-price">&#x20A6;34,995 <span>/ visit</span></div>
+        <p class="plan-desc">For individuals and small businesses needing on-site support.</p>
+        <hr class="plan-divider"/>
+        <ul class="plan-features">
+          <li>On-site visit in Abuja (up to 2 hrs)</li>
+          <li>Laptop / PC hardware repair</li>
+          <li>Network &amp; Wi-Fi setup</li>
+          <li>Microsoft 365 setup or support</li>
+          <li>WordPress updates &amp; fixes</li>
+          <li>Priority WhatsApp support</li>
+        </ul>
+        <button class="plan-btn solid" onclick="selectPlan('Professional - ₦34,995/visit')">Get Started</button>
+      </div>
+      <div class="pricing-card">
+        <div class="plan-name">Business</div>
+        <div class="plan-price">Custom</div>
+        <p class="plan-desc">Monthly retainer for businesses needing ongoing IT management.</p>
+        <hr class="plan-divider"/>
+        <ul class="plan-features">
+          <li>Dedicated IT support (SLA-backed)</li>
+          <li>Microsoft 365 administration</li>
+          <li>WordPress managed maintenance</li>
+          <li>Unlimited remote support</li>
+          <li>Scheduled on-site visits</li>
+          <li>Network monitoring &amp; security</li>
+        </ul>
+        <button class="plan-btn outline" onclick="selectPlan('Business - Custom Retainer')">Request a Quote</button>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:14px;color:var(--gray-500);margin-top:28px">Prices are starting rates. Complex jobs quoted individually. We always confirm costs before starting work.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-inner">
+      <div>
+        <div class="section-tag">About K Tech</div>
+        <h2 class="section-title">Your Trusted IT Partner in Abuja</h2>
+        <p style="font-size:16px;color:var(--gray-500);line-height:1.75;margin-bottom:20px">K Tech is a professional IT support service based in Abuja, Nigeria. We help individuals, freelancers, startups, and established businesses keep their technology running smoothly.</p>
+        <p style="font-size:16px;color:var(--gray-500);line-height:1.75;margin-bottom:28px">We believe IT support should be straightforward, affordable, and reliable. No unnecessary upsells, just honest, competent help when you need it most.</p>
+        <div class="about-badges">
+          <span class="about-badge">Microsoft 365</span>
+          <span class="about-badge">WordPress</span>
+          <span class="about-badge">Laptop Repairs</span>
+          <span class="about-badge">Networking</span>
+          <span class="about-badge">Remote Support</span>
+        </div>
+        <div class="perks">
+          <div class="perk"><div class="perk-icon">⚡</div><div><h5>Fast Response</h5><p>Acknowledged within 2 to 4 hours</p></div></div>
+          <div class="perk"><div class="perk-icon">🔒</div><div><h5>Secure &amp; Private</h5><p>Your data handled with care</p></div></div>
+          <div class="perk"><div class="perk-icon">💬</div><div><h5>Clear Communication</h5><p>Plain English, no jargon</p></div></div>
+          <div class="perk"><div class="perk-icon">✅</div><div><h5>Satisfaction First</h5><p>We follow up after every job</p></div></div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="avatar-circle">KT</div>
+        <h3>K Tech</h3>
+        <p class="role">IT Support Specialist &middot; Abuja, Nigeria</p>
+        <div class="skill-bars">
+          <div class="skill-bar"><div class="skill-bar-label"><span>Laptop &amp; PC Repair</span><span>95%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width:95%"></div></div></div>
+          <div class="skill-bar"><div class="skill-bar-label"><span>Microsoft 365 Admin</span><span>90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+          <div class="skill-bar"><div class="skill-bar-label"><span>WordPress</span><span>88%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+          <div class="skill-bar"><div class="skill-bar-label"><span>Networking</span><span>85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+          <div class="skill-bar"><div class="skill-bar-label"><span>Remote Support</span><span>98%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" style="width:98%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-title" style="color:white">Let's Fix Your IT Problem</h2>
+        <p>Have a tech issue? Fill the form and we will get back to you quickly, or message us on WhatsApp for immediate help.</p>
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="contact-method-icon">📱</div>
+            <div class="contact-method-text">
+              <span>WhatsApp / Call</span>
+              <!-- EDIT: Replace with your real number -->
+              <strong><a href="https://wa.me/2349121581316">+234 912 158 1316</a></strong>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon">📧</div>
+            <div class="contact-method-text">
+              <span>Email</span>
+              <!-- EDIT: Replace with your real email -->
+              <strong><a href="mailto:kiitrepairs@gmail.com">kiitrepairs@gmail.com</a></strong>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon">📍</div>
+            <div class="contact-method-text"><span>Location</span><strong>Abuja, FCT, Nigeria</strong></div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon">🕐</div>
+            <div class="contact-method-text"><span>Working Hours</span><strong>Mon to Sat, 8am to 7pm</strong></div>
+          </div>
+        </div>
+        <!-- Immediate WhatsApp CTA -->
+        <a href="https://wa.me/2349121581316?text=Hi%20K%20Tech!%20I%20need%20immediate%20IT%20support."
+           target="_blank"
+           style="display:inline-flex;align-items:center;gap:10px;background:var(--wa-green);color:white;padding:14px 24px;border-radius:var(--radius);text-decoration:none;font-weight:500;margin-top:28px;font-size:15px;transition:background 0.2s"
+           onmouseover="this.style.background='#1ebe5d'" onmouseout="this.style.background='var(--wa-green)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Message Us on WhatsApp Now
+        </a>
+      </div>
+
+      <!-- CONTACT FORM connected to Notion CRM -->
+      <div>
+        <div class="contact-form-wrap" id="contactFormWrap">
+          <h3 style="color:white;font-size:18px;margin-bottom:22px;font-family:'Space Grotesk',sans-serif">Book a Support Session</h3>
+          <div class="form-error-msg" id="formError">Something went wrong. Please try WhatsApp instead.</div>
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom:0">
+              <label>First Name *</label>
+              <input type="text" id="firstName" placeholder="John" required/>
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label>Last Name *</label>
+              <input type="text" id="lastName" placeholder="Doe" required/>
+            </div>
+          </div>
+          <div style="margin-bottom:16px"></div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" id="email" placeholder="you@example.com" required/>
+          </div>
+          <div class="form-group">
+            <label>Phone / WhatsApp *</label>
+            <input type="tel" id="phone" placeholder="+234 800 000 0000" required/>
+          </div>
+          <div class="form-group">
+            <label>Service Needed *</label>
+            <select id="service">
+              <option value="">Select a service...</option>
+              <option>Laptop / PC Repair</option>
+              <option>Microsoft 365 Support</option>
+              <option>WordPress Maintenance</option>
+              <option>Software Installation</option>
+              <option>Network / Wi-Fi Setup</option>
+              <option>Remote Support</option>
+              <option>Business IT Retainer</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Plan</label>
+            <select id="plan">
+              <option value="">Select a plan (optional)</option>
+              <option>Basic (&#x20A6;14,995/session)</option>
+              <option>Professional (&#x20A6;34,995/visit)</option>
+              <option>Business (Custom Retainer)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Describe Your Issue *</label>
+            <textarea id="message" placeholder="Tell us what's happening. The more detail, the faster we can help..."></textarea>
+          </div>
+          <button class="form-submit" id="submitBtn" onclick="submitForm()">
+            <span id="submitText">Send Message</span>
+          </button>
+        </div>
+        <div id="formSuccess" style="display:none;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:48px 32px;text-align:center">
+          <div class="success-icon">✅</div>
+          <h3 style="color:white;font-size:20px;margin-bottom:12px;font-family:'Space Grotesk',sans-serif">Request Received!</h3>
+          <p style="color:rgba(255,255,255,0.6);margin-bottom:20px">We have logged your details and will be in touch within a few hours. For urgent issues, message us on WhatsApp.</p>
+          <a href="https://wa.me/2349121581316?text=Hi!%20I%20just%20submitted%20a%20support%20request%20on%20your%20website."
+             target="_blank"
+             style="display:inline-flex;align-items:center;gap:8px;background:var(--wa-green);color:white;padding:12px 22px;border-radius:var(--radius);text-decoration:none;font-weight:500;font-size:14px">
+            Follow up on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">K<span>.</span>TECH</div>
+        <p class="footer-desc">Professional IT support for individuals and businesses in Abuja and remotely across Nigeria. Fast, honest, affordable.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Laptop &amp; PC Repair</a></li>
+          <li><a href="#services">Microsoft 365 Admin</a></li>
+          <li><a href="#services">WordPress Maintenance</a></li>
+          <li><a href="#services">Software Installation</a></li>
+          <li><a href="#services">Network Setup</a></li>
+          <li><a href="#services">Remote Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About K Tech</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 K Tech. All rights reserved. Based in Abuja, FCT, Nigeria.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.25)">IT Support &middot; Abuja &middot; Remote Nigeria</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// NOTION CRM INTEGRATION
+// ═══════════════════════════════════════════════════════
+// HOW TO SET UP (one-time, free):
+//
+// 1. Go to https://www.notion.so → create a free account
+// 2. Create a new database with these columns:
+//    - Name (title)
+//    - Email (email)
+//    - Phone (phone)
+//    - Service (select)
+//    - Plan (select)
+//    - Message (text)
+//    - Status (select: New, In Progress, Done)
+//    - Date (created_time)
+//
+// 3. Go to https://developers.notion.com
+//    → My integrations → New integration
+//    → Copy your "Internal Integration Token"
+//    → Paste it as NOTION_API_KEY below
+//
+// 4. Share your Notion database with your integration
+//    (open DB → top right ··· → Connections → add your integration)
+//    → Copy the database ID from the URL:
+//    notion.so/YOUR_WORKSPACE/[DATABASE_ID]?v=...
+//    → Paste it as NOTION_DATABASE_ID below
+//
+// 5. Deploy a free Vercel serverless function to proxy the API
+//    (see /api/submit.js in this project)
+//    This is needed because the Notion API can't be called
+//    directly from a browser (CORS restriction).
+// ═══════════════════════════════════════════════════════
+
+async function submitForm() {
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName  = document.getElementById('lastName').value.trim();
+  const email     = document.getElementById('email').value.trim();
+  const phone     = document.getElementById('phone').value.trim();
+  const service   = document.getElementById('service').value;
+  const plan      = document.getElementById('plan').value;
+  const message   = document.getElementById('message').value.trim();
+  const errorEl   = document.getElementById('formError');
+  const submitBtn = document.getElementById('submitBtn');
+  const submitTxt = document.getElementById('submitText');
+
+  errorEl.style.display = 'none';
+
+  if (!firstName || !lastName || !email || !phone || !service || !message) {
+    errorEl.textContent = 'Please fill in all required fields.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitTxt.textContent = 'Sending...';
+
+  try {
+    const res = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ firstName, lastName, email, phone, service, plan, message })
+    });
+
+    if (res.ok) {
+      document.getElementById('contactFormWrap').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    // Fallback: open WhatsApp with the details pre-filled
+    const waMsg = encodeURIComponent(
+      `Hi K Tech! I'd like IT support.\n\nName: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}`
+    );
+    errorEl.innerHTML = 'Form submission failed. <a href="https://wa.me/2349121581316?text=' + waMsg + '" target="_blank" style="color:#93C5FD">Click here to send via WhatsApp instead.</a>';
+    errorEl.style.display = 'block';
+    submitBtn.disabled = false;
+    submitTxt.textContent = 'Send Message';
+  }
+}
+
+// Select plan from pricing section and scroll to form
+function selectPlan(planName) {
+  document.getElementById('plan').value = planName;
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => document.getElementById('firstName').focus(), 600);
+}
+
+// Nav helpers
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu()  { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
