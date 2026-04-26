@@ -23,13 +23,16 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: 'Server configuration error' });
   }
 
-  // Notion select options cannot contain commas — strip to simple label
-  const planMap = {
-    'Basic (₦5,000/session)':       'Basic',
-    'Professional (₦15,000/visit)': 'Professional',
-    'Business (Custom Retainer)':   'Business',
-  };
-  const cleanPlan = planMap[plan] || plan || 'Not specified';
+  // Notion select fields reject commas and special characters.
+  // Strip everything — just keep the first word (Basic / Professional / Business)
+  const cleanPlan = (plan || 'Not specified')
+    .replace(/[₦,()\/]/g, '')   // remove ₦ , ( ) /
+    .trim()
+    .split(' ')[0]               // take only the first word
+    || 'Not specified';
+
+  // Same safety net for service just in case
+  const cleanService = (service || 'Other').replace(/,/g, ' ');
 
   try {
     const notionRes = await fetch('https://api.notion.com/v1/pages', {
@@ -52,7 +55,7 @@ module.exports = async function handler(req, res) {
             phone_number: phone
           },
           'Service': {
-            select: { name: service }
+            select: { name: cleanService }
           },
           'Plan': {
             select: { name: cleanPlan }
